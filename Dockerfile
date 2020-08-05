@@ -19,6 +19,9 @@ RUN echo 'pcov.enabled = 1' >> /usr/local/etc/php/conf.d/docker-php-ext-pcov.ini
 # install mongodb
 RUN pecl install mongodb && docker-php-ext-enable mongodb
 
+# install apc cache
+RUN pecl install apcu && docker-php-ext-enable apcu
+
 # needed for zip below
 RUN apt-get install bzip2 libbz2-dev libxml2-dev libpng-dev
 
