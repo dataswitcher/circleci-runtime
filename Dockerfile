@@ -15,6 +15,7 @@ RUN pecl install pcov && docker-php-ext-enable pcov
 
 # enable it
 RUN echo 'pcov.enabled = 1' >> /usr/local/etc/php/conf.d/docker-php-ext-pcov.ini
+RUN echo 'apc.enable_cli=1' >> /usr/local/etc/php/conf.d/docker-php-ext-apc.ini
 
 # install mongodb
 RUN pecl install mongodb && docker-php-ext-enable mongodb
@@ -27,6 +28,8 @@ RUN apt-get install bzip2 libbz2-dev libxml2-dev libpng-dev
 
 # enable other modules
 RUN docker-php-ext-install pdo pcntl bcmath bz2 calendar iconv intl mbstring mysqli opcache pdo_mysql soap zip sockets gd
+
+
 
 # in CircleCI:
 # - rm /var/www/html && ln -s /var/app/web /var/www/html
