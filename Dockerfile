@@ -14,7 +14,9 @@ RUN rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN pecl install pcov && docker-php-ext-enable pcov
 
 # enable it
-RUN echo 'pcov.enabled = 1' >> /usr/local/etc/php/conf.d/docker-php-ext-pcov.ini
+RUN echo 'pcov.enabled=1' >> /usr/local/etc/php/conf.d/docker-php-ext-pcov.ini
+# set the directory to current working directory default it will look in app
+RUN echo 'pcov.directory=.' >> /usr/local/etc/php/conf.d/docker-php-ext-pcov.ini
 RUN echo 'apc.enable_cli=1' >> /usr/local/etc/php/conf.d/docker-php-ext-apc.ini
 
 # install mongodb
