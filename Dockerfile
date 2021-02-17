@@ -20,7 +20,7 @@ RUN echo 'pcov.directory=.' >> /usr/local/etc/php/conf.d/docker-php-ext-pcov.ini
 RUN echo 'apc.enable_cli=1' >> /usr/local/etc/php/conf.d/docker-php-ext-apc.ini
 
 # install mongodb
-RUN pecl install mongodb && docker-php-ext-enable mongodb
+RUN pecl install mongodb-1.8.2 && docker-php-ext-enable mongodb
 
 # install apc cache
 RUN pecl install apcu && docker-php-ext-enable apcu
