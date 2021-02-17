@@ -26,7 +26,7 @@ RUN pecl install mongodb-1.8.2 && docker-php-ext-enable mongodb
 RUN pecl install apcu && docker-php-ext-enable apcu
 
 # needed for zip below
-RUN apt-get install bzip2 libbz2-dev libxml2-dev libpng-dev
+RUN apt-get update && apt-get install bzip2 libbz2-dev libxml2-dev libpng-dev
 
 # enable other modules
 RUN docker-php-ext-install pdo pcntl bcmath bz2 calendar iconv intl mbstring mysqli opcache pdo_mysql soap zip sockets gd
